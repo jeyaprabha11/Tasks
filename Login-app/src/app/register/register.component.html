@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+ 
+</head>
+<body>
+  
+<div class="container" >
+   
+    <form (ngSubmit)="RegFun()" role="form"  [formGroup]="RegisterForm" >
+    <h2>{{title | uppercase}}</h2>
+   
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label" [ngStyle]="incss()">Email address</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required name="email" formControlName="email">
+          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        <div *ngIf="RegisterForm.get('email')!.invalid && (RegisterForm.get('email')!.dirty || RegisterForm.get('email')!.touched)">
+          <small class="form-text text-danger" *ngIf="RegisterForm.get('email')?.errors?.['required']">your email is required</small>
+        <small class="form-text text-danger" *ngIf="RegisterForm.get('email')?.errors?.['email']">sorry,we don't recognize this email address</small>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label" required name="password" formControlName="password" [ngStyle]="incss()">Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1">
+        </div>
+        <div *ngIf="RegisterForm.get('password')!.invalid && (RegisterForm.get('password')!.dirty || RegisterForm.get('password')!.touched)">
+          <small class="form-text text-danger" *ngIf="RegisterForm.get('password')?.errors?.['required']">your password is required</small>
+          <small class="form-text text-danger" *ngIf="RegisterForm.get('password')?.errors?.['minlength']">minimum 3 letters</small>
+         </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label" [ngStyle]="incss()">phone</label>
+          <input type="number" class="form-control" id="exampleInputPhone1" required name="phone" formControlName="phone">
+        </div>
+        <div *ngIf="RegisterForm.get('password')!.invalid && (RegisterForm.get('password')!.dirty || RegisterForm.get('password')!.touched)">
+          <small class="form-text text-danger" *ngIf="RegisterForm.get('password')?.errors?.['required']">your password is required</small>
+          <small class="form-text text-danger" *ngIf="RegisterForm.get('password')?.errors?.['maxlength']">maximum  10 letters</small>
+         </div>
+        
+       
+        <button type="submit" class="btn btn-primary">Submit</button> 
+       
+      
+      </form>
+     <!-- <p>{{user|json}}</p>
+      <p>{{1 | number : '1.6'}}</p>
+      <p>{{1| currency:'INR'}}</p>
+      <p>{{1|multiply}}</p>-->
+      
+   
+</div>
+</body>
+</html>
+
+<!-- <router-outlet></router-outlet> -->

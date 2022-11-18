@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head></head>
+<body>
+  
+<div class="container" >
+   
+    <form appFocusformelements (ngSubmit)="LoginFun()" role="form" [formGroup]="LoginForm">
+    
+      <h2 >{{title|uppercase}}</h2>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  required name="email" formControlName="email">
+      
+      </div>
+    <div *ngIf="LoginForm.get('email')!.invalid && (LoginForm.get('email')!.dirty || LoginForm.get('email')!.touched)">
+      <small class="form-text text-danger" *ngIf="LoginForm.get('email')?.errors?.['required']">your email is required</small>
+    <small class="form-text text-danger" *ngIf="LoginForm.get('email')?.errors?.['email']">sorry,we don't recognize this email address</small>
+    </div>
+      <br> 
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1"  required name="password" formControlName="password">
+      </div>
+  
+      <div *ngIf="LoginForm.get('password')!.invalid && (LoginForm.get('password')!.dirty || LoginForm.get('password')!.touched)">
+     <small class="form-text text-danger" *ngIf="LoginForm.get('password')?.errors?.['required']">Password is required</small>
+     <small class="form-text text-danger" *ngIf="LoginForm.get('password')?.errors?.['minlength']">minimum 3 letters</small>
+    </div>
+      <br>
+  
+   
+      <button type="submit" class="btn btn-primary">Submit</button>
+  
+      </form>
+      <div>{{LoginForm.get('email')?.value | uppercase}}</div>
+      <h6>{{todaydate | date :"fullDate"}}</h6>
+      <h2>{{title| slice : 2:4}}</h2>
+     
+  
+   
+</div> 
+
+</body>
+</html>
