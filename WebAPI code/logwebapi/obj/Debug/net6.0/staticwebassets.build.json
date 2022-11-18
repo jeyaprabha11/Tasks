@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "sQmrvGkR0uMbzuNQ0I/SAw171iLx+X0aYXmwYgwKxrk=",
+  "Source": "logwebapi",
+  "BasePath": "_content/logwebapi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
